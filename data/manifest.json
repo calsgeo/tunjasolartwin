@@ -1,0 +1,208 @@
+{
+  "scenarios": [
+    {
+      "id": "lidar_area_construida",
+      "name": "LIDAR \u00b7 \u00c1rea Construida",
+      "tileset": "tiles/lidar_area_construida/tileset.json"
+    },
+    {
+      "id": "nube_f_area_construida",
+      "name": "NUBE_F \u00b7 \u00c1rea Construida",
+      "tileset": "tiles/nube_f_area_construida/tileset.json"
+    },
+    {
+      "id": "lidar_huellas",
+      "name": "LIDAR \u00b7 Huellas",
+      "tileset": "tiles/lidar_huellas/tileset.json"
+    },
+    {
+      "id": "nube_f_huellas",
+      "name": "NUBE_F \u00b7 Huellas",
+      "tileset": "tiles/nube_f_huellas/tileset.json"
+    }
+  ],
+  "terrain": {
+    "tileset": "tiles/terrain/tileset.json"
+  },
+  "metrics": "metrics.json",
+  "basemap": {
+    "archive": "/basemap/Tunja.pmtiles",
+    "attribution": "\u00a9 OpenStreetMap contributors \u00b7 BBBike extract \u00b7 systemed/BBBike.org style"
+  },
+  "units": "kWh/m\u00b2/year",
+  "orientation_sectors": [
+    "N",
+    "NE",
+    "E",
+    "SE",
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "FLAT_ROOF"
+  ],
+  "geometry_only": false,
+  "source_data": {
+    "dataset_id": "tunja-solarpotential",
+    "version": "1.0.0",
+    "source": "SimStadt PV potencial analysis 0.14.0-SNAPSHOT (meteonorm_Perez), normalized onto canonical LIDAR_AREA_CONSTRUIDA building IDs via the groundsurface crosswalk",
+    "license": "Set the source dataset licence before release",
+    "orientation_record_type": "grouped",
+    "building_value_rows": 1358,
+    "orientation_records": 40494,
+    "warnings": [
+      "34 canonical model buildings have no SolarPotential values; they render white as buildings without solar results.",
+      "SolarPotential orientation data is absent for 158 building-scenario combinations."
+    ]
+  },
+  "profiles": {
+    "lidar_area_construida": {
+      "index": "profiles/lidar_area_construida_index.json",
+      "daily": "profiles/lidar_area_construida_daily.f32",
+      "monthly": "profiles/lidar_area_construida_monthly.f32",
+      "units": "kWh",
+      "hourly_source": {
+        "path": "data/MODELO_LIDAR_AREA_CONSTRUIDA_meteonorm_Perez_pv_hourly_production.csv",
+        "sha256": "41eb590312a5ebf1efe393cba47470d5c68c31098d386b82b99fa74ad09e87c7",
+        "rows": 8760,
+        "building_columns": 379
+      },
+      "derivation": "daily/monthly sums of the scenario hourly kWh exports over the mapped source buildings of each canonical building"
+    },
+    "nube_f_area_construida": {
+      "index": "profiles/nube_f_area_construida_index.json",
+      "daily": "profiles/nube_f_area_construida_daily.f32",
+      "monthly": "profiles/nube_f_area_construida_monthly.f32",
+      "units": "kWh",
+      "hourly_source": {
+        "path": "data/MODELO_NUBE_F_AREA_CONSTRUIDA_meteonorm_Perez_pv_hourly_production.csv",
+        "sha256": "f0dfe1aa0fc5f37012100f47f2a1089d28bd70246a479a6cf7c65eebbe39dfca",
+        "rows": 8760,
+        "building_columns": 394
+      },
+      "derivation": "daily/monthly sums of the scenario hourly kWh exports over the mapped source buildings of each canonical building"
+    },
+    "lidar_huellas": {
+      "index": "profiles/lidar_huellas_index.json",
+      "daily": "profiles/lidar_huellas_daily.f32",
+      "monthly": "profiles/lidar_huellas_monthly.f32",
+      "units": "kWh",
+      "hourly_source": {
+        "path": "data/MODELO_LIDAR_HUELLAS_meteonorm_Perez_pv_hourly_production.csv",
+        "sha256": "5eed5decf048f26d44f4a4539d7d1ce3d91ca62cba9e2ba152cc187216ab9d60",
+        "rows": 8760,
+        "building_columns": 2080
+      },
+      "derivation": "daily/monthly sums of the scenario hourly kWh exports over the mapped source buildings of each canonical building"
+    },
+    "nube_f_huellas": {
+      "index": "profiles/nube_f_huellas_index.json",
+      "daily": "profiles/nube_f_huellas_daily.f32",
+      "monthly": "profiles/nube_f_huellas_monthly.f32",
+      "units": "kWh",
+      "hourly_source": {
+        "path": "data/MODELO_NUBE_F_HUELLAS_meteonorm_Perez_pv_hourly_production.csv",
+        "sha256": "3a5f59374df8e3e5f0cf0a6c018e11854d9bd8a595bdfafa35735fe56650a9eb",
+        "rows": 8760,
+        "building_columns": 2091
+      },
+      "derivation": "daily/monthly sums of the scenario hourly kWh exports over the mapped source buildings of each canonical building"
+    }
+  },
+  "surfaces": {
+    "lidar_area_construida": {
+      "catalog": "surfaces/lidar_area_construida_catalog.json",
+      "surface_count": 9707,
+      "suitable_count": 9707
+    },
+    "nube_f_area_construida": {
+      "catalog": "surfaces/nube_f_area_construida_catalog.json",
+      "surface_count": 10586,
+      "suitable_count": 10586
+    },
+    "lidar_huellas": {
+      "catalog": "surfaces/lidar_huellas_catalog.json",
+      "surface_count": 9758,
+      "suitable_count": 9758
+    },
+    "nube_f_huellas": {
+      "catalog": "surfaces/nube_f_huellas_catalog.json",
+      "surface_count": 10443,
+      "suitable_count": 10443
+    }
+  },
+  "preparation": {
+    "surface_results": {
+      "lidar_area_construida": {
+        "building_count": 379,
+        "geometry_surfaces": 70970,
+        "filled_hole_polygons": 43,
+        "repaired_ring_polygons": 5
+      },
+      "nube_f_area_construida": {
+        "building_count": 394,
+        "geometry_surfaces": 98712,
+        "filled_hole_polygons": 29,
+        "repaired_ring_polygons": 0
+      },
+      "lidar_huellas": {
+        "building_count": 2080,
+        "geometry_surfaces": 66374,
+        "filled_hole_polygons": 40,
+        "repaired_ring_polygons": 4
+      },
+      "nube_f_huellas": {
+        "building_count": 2091,
+        "geometry_surfaces": 86873,
+        "filled_hole_polygons": 28,
+        "repaired_ring_polygons": 0
+      }
+    },
+    "horizontal_crs": "EPSG:3116",
+    "vertical_reference": "unknown",
+    "input_files": [
+      {
+        "path": "/mnt/c/Users/Camilo/Dropbox/Publications/2026/IJGI/DigitalTwins_Tunja/Data_Tests/MODELO_LIDAR_AREA_CONSTRUIDA.gml",
+        "sha256": "d16ffbcb83fea354db70c2eba9b1d7fb89b33101b8a076c25e69ad2d0cd096be"
+      },
+      {
+        "path": "/mnt/c/Users/Camilo/Dropbox/Publications/2026/IJGI/DigitalTwins_Tunja/Data_Tests/MODELO_NUBE_F_AREA_CONSTRUIDA.gml",
+        "sha256": "1a23fbb9b85c33d7c5988f28ea14eea10e3d7dcf7ebbc41811b4ff35c7f57157"
+      },
+      {
+        "path": "/mnt/c/Users/Camilo/Dropbox/Publications/2026/IJGI/DigitalTwins_Tunja/Data_Tests/MODELO_LIDAR_HUELLAS.gml",
+        "sha256": "d47588359bdceae735bd696797a9e10d1a20c911e84b49580c7161bd08a35e5d"
+      },
+      {
+        "path": "/mnt/c/Users/Camilo/Dropbox/Publications/2026/IJGI/DigitalTwins_Tunja/Data_Tests/MODELO_NUBE_F_HUELLAS.gml",
+        "sha256": "e383f73c12362ae1006d268cc123d274238b9c3e56a67a51aab21f002eacbf59"
+      },
+      {
+        "path": "/mnt/c/Users/Camilo/Dropbox/Publications/2026/IJGI/DigitalTwins_Tunja/Data_Tests/TUNJA_DTM_TIN_GENERALIZED_LIDAR_ADJUSTED.gml",
+        "sha256": "e5d12853ecd77bdf5af9332cc59e0cb7c78c634c308052b311b8f90042255a11"
+      },
+      {
+        "path": "data/manifest.json",
+        "sha256": "5d5fef141b5a5015fc783832f9a324006cdbbddcb6c556d2fae03d1670a10303"
+      },
+      {
+        "path": "data/building_values.csv",
+        "sha256": "b1fb2c1ca7cd52795c7fdadb2c1cfda90a7684bca940c9673da795134150fd8f"
+      },
+      {
+        "path": "data/orientation_values.csv",
+        "sha256": "159a6177d42afcba8fc19937a212600ea526277deeb6d3b40ca15797cbdb257d"
+      }
+    ],
+    "software_versions": {
+      "python": "3.15.2",
+      "numpy": "2.5.4",
+      "gdal": "3.13.3"
+    },
+    "warnings": [
+      "Vertical reference is unknown; elevations have not been transformed to a known vertical datum.",
+      "34 canonical model buildings have no SolarPotential values; they render white as buildings without solar results.",
+      "SolarPotential orientation data is absent for 158 building-scenario combinations."
+    ]
+  }
+}

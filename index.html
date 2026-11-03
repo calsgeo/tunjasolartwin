@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore and compare annual solar irradiation across Tunja building scenarios." />
+    <title>Tunja Solar Digital Twin</title>
+    <script type="module" crossorigin src="./assets/index-DzYrl_RW.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CKOsOBNW.css">
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">☀</span><div><strong>Tunja Solar Twin</strong><small>Building irradiation explorer</small></div></div>
+        <div class="metric-pill"><span class="status-dot"></span><span id="dataset-status">Loading study data…</span></div>
+      </header>
+      <main class="workspace">
+        <section class="map-panel" aria-label="3D map">
+          <div id="cesiumContainer"></div>
+          <div class="map-toolbar">
+            <label>Displayed scenario<select id="scenario-select" disabled></select></label>
+            <label>Colour by<select id="colour-mode" disabled><option value="scenario">Annual irradiation</option><option value="difference">Difference from reference</option><option value="surface">Suitable surfaces</option></select></label>
+            <label id="reference-wrap" class="hidden">Reference<select id="reference-select" disabled></select></label>
+          </div>
+          <details class="sun-control" open>
+            <summary><span>☀ Sun &amp; shadows</span><output id="sun-summary">12:00 · —°</output></summary>
+            <div class="sun-control-body">
+              <div class="sun-location">
+                <label>Latitude<input id="sun-latitude" type="number" min="-90" max="90" step="0.0001" value="5.5353" /></label>
+                <label>Longitude<input id="sun-longitude" type="number" min="-180" max="180" step="0.0001" value="-73.3678" /></label>
+              </div>
+              <label class="sun-date-label">Date<input id="sun-date" type="date" /></label>
+              <label class="sun-hour-label">Local solar time <output id="sun-hour-label">12:00</output></label>
+              <input id="sun-hour" class="sun-hour-slider" type="range" min="4" max="20" step="0.25" value="12" aria-label="Local solar time" />
+              <div class="sun-readout"><span>Azimuth <strong id="sun-azimuth">—</strong></span><span>Elevation <strong id="sun-elevation">—</strong></span></div>
+              <label class="shadow-toggle"><input id="shadows-toggle" type="checkbox" /> Building and terrain shadows</label>
+              <p>Location uses decimal degrees. Time is local solar time.</p>
+            </div>
+          </details>
+          <div class="layer-control"><span class="control-title">Layers</span><label><input id="buildings-toggle" type="checkbox" checked /> Buildings</label><label><input id="terrain-toggle" type="checkbox" checked /> DTM</label></div>
+          <div class="legend" id="legend"><span>Annual irradiation</span><div class="legend-gradient"></div><div class="legend-labels"><span id="legend-min">—</span><span id="legend-max">—</span></div></div>
+          <div class="map-credit">© OpenStreetMap contributors · BBBike · systemed</div>
+        </section>
+        <aside class="details-panel" aria-live="polite">
+          <div id="welcome" class="welcome"><div class="sun-large">☀</div><h1>Explore solar potential</h1><p>Choose a building in the 3D scene to compare annual irradiation and SolarPotential surface orientations across the four model scenarios.</p><div class="welcome-note"><strong>About the values</strong><span>Building values, surface areas, and orientation values come from SolarPotential data in kWh/m²/year.</span></div></div>
+          <div id="building-details" class="hidden"></div>
+          <div id="error-panel" class="error-panel hidden"></div>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>
