@@ -1,3 +1,31 @@
+# Operating system metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100/
+.Trashes/
+.fseventsd/
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+*~
+.nfs*
+
+# Local editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.orig
+
+# Temporary publishing output
+_site/
+.tunja-pages-stage-*/
+.tunja-pages-backup-*/
+
 # Logs
 logs
 *.log
