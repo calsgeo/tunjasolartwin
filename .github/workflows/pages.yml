@@ -1,0 +1,56 @@
+name: Publish GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out published site
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Validate and stage static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f .nojekyll
+          test -f CNAME
+          test -d assets
+          test -d cesiumStatic/Workers
+          test -d cesiumStatic/Widgets
+          test -d basemap
+          compgen -G 'basemap/*.pmtiles' >/dev/null
+          test -f data/appearance-manifest.json
+          test -d data/tiles
+          mkdir _site
+          cp -a index.html assets cesiumStatic basemap data .nojekyll CNAME _site/
+          find _site -type f -name .DS_Store -delete
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+          include-hidden-files: true
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
