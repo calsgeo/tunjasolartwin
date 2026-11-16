@@ -1,9 +1,9 @@
 {
   "scenarios": [
     {
-      "id": "tunja_preview",
-      "name": "Tunja building model",
-      "tileset": "tiles/tunja_preview/tileset.json"
+      "id": "no_scenario",
+      "name": "No Scenario",
+      "tileset": "tiles/no_scenario/tileset.json"
     }
   ],
   "terrain": {
@@ -27,14 +27,37 @@
     "FLAT_ROOF"
   ],
   "geometry_only": true,
+  "source_data": null,
+  "profiles": {},
+  "surfaces": {},
   "preparation": {
     "surface_results": {
-      "tunja_preview": {
-        "building_count": 2080,
-        "rows": 0,
-        "surface_columns": 66382
+      "no_scenario": {
+        "building_count": 379,
+        "geometry_surfaces": 70970,
+        "filled_hole_polygons": 43,
+        "repaired_ring_polygons": 5
       }
     },
-    "time_step_hours": 1.0
+    "horizontal_crs": "EPSG:3116",
+    "vertical_reference": "unknown",
+    "input_files": [
+      {
+        "path": "/Users/cleon/Library/CloudStorage/Dropbox/Publications/2026/IJGI/DigitalTwins_Tunja/Data_Tests/MODELO_LIDAR_AREA_CONSTRUIDA.gml",
+        "sha256": "d16ffbcb83fea354db70c2eba9b1d7fb89b33101b8a076c25e69ad2d0cd096be"
+      },
+      {
+        "path": "/Users/cleon/Library/CloudStorage/Dropbox/Publications/2026/IJGI/DigitalTwins_Tunja/Data_Tests/TUNJA_DTM_TIN_GENERALIZED.gml",
+        "sha256": "c3ef44473f81a357fba9e045460e12cc27088fc92434198a53cbd2cc8e3bf67e"
+      }
+    ],
+    "software_versions": {
+      "python": "3.14.7",
+      "numpy": "2.5.4",
+      "gdal": "3.13.3"
+    },
+    "warnings": [
+      "Vertical reference is unknown; elevations have not been transformed to a known vertical datum."
+    ]
   }
 }
