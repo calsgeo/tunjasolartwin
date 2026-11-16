@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Explore and compare annual solar irradiation across Tunja building scenarios." />
     <title>Tunja Solar Digital Twin</title>
-    <script type="module" crossorigin src="./assets/index-DzYrl_RW.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CKOsOBNW.css">
+    <script type="module" crossorigin src="./assets/index-BfoXLdlf.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-k38M7Kh-.css">
   </head>
   <body>
     <div id="app">
@@ -19,7 +19,7 @@
           <div id="cesiumContainer"></div>
           <div class="map-toolbar">
             <label>Displayed scenario<select id="scenario-select" disabled></select></label>
-            <label>Colour by<select id="colour-mode" disabled><option value="scenario">Annual irradiation</option><option value="difference">Difference from reference</option><option value="surface">Suitable surfaces</option></select></label>
+          <label>Colour by<select id="colour-mode" disabled><option value="scenario">Annual irradiation</option><option value="difference">Difference from reference</option><option value="surface">Suitable surfaces</option></select></label>
             <label id="reference-wrap" class="hidden">Reference<select id="reference-select" disabled></select></label>
           </div>
           <details class="sun-control" open>
@@ -37,9 +37,9 @@
               <p>Location uses decimal degrees. Time is local solar time.</p>
             </div>
           </details>
-          <div class="layer-control"><span class="control-title">Layers</span><label><input id="buildings-toggle" type="checkbox" checked /> Buildings</label><label><input id="terrain-toggle" type="checkbox" checked /> DTM</label></div>
-          <div class="legend" id="legend"><span>Annual irradiation</span><div class="legend-gradient"></div><div class="legend-labels"><span id="legend-min">—</span><span id="legend-max">—</span></div></div>
-          <div class="map-credit">© OpenStreetMap contributors · BBBike · systemed</div>
+          <div class="layer-control"><span class="control-title">Layers</span><label><input id="buildings-toggle" type="checkbox" checked /> Buildings</label><label><input id="terrain-toggle" type="checkbox" checked /> DTM</label><label class="basemap-label">Basemap<select id="basemap-select" disabled><option value="ortophoto">Ortophoto</option><option value="opentopo">OpenTopoMap</option></select></label><button id="north-up" class="north-up-button" type="button" title="Rotate the current view so north is up">↑ North up</button></div>
+          <div class="legend" id="legend"><span>Annual irradiation</span><div class="legend-gradient"></div><div class="legend-labels"><span id="legend-min">—</span><span id="legend-mid"></span><span id="legend-max">—</span></div><img id="appearance-legend-image" class="hidden" alt="Annual total irradiation colour scale" /></div>
+          <div class="map-credit" id="map-credit">Tunja orthophoto</div>
         </section>
         <aside class="details-panel" aria-live="polite">
           <div id="welcome" class="welcome"><div class="sun-large">☀</div><h1>Explore solar potential</h1><p>Choose a building in the 3D scene to compare annual irradiation and SolarPotential surface orientations across the four model scenarios.</p><div class="welcome-note"><strong>About the values</strong><span>Building values, surface areas, and orientation values come from SolarPotential data in kWh/m²/year.</span></div></div>
