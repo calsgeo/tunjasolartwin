@@ -1,0 +1,102 @@
+{
+  "year": 2026,
+  "units": "kWh/m2",
+  "shared_color_scale": {
+    "minimum": 0.0,
+    "maximum": 1590.95812359,
+    "derivation": "Annual point-value extrema over matched sampled building thematic surfaces across all four cases. The scale also covers all annual Building total values.",
+    "building_total_minimum": 198.228698533,
+    "building_total_maximum": 1127.471365021
+  },
+  "themes": {
+    "gradient": "annual-irradiation-gradient",
+    "surface": "annual-irradiation-surface",
+    "building": "annual-irradiation-building"
+  },
+  "cases": [
+    {
+      "id": "nube-f-huellas",
+      "name": "MODELO NUBE F HUELLAS CONSOLIDATED",
+      "catalog": "tiles/annual_appearance/nube-f-huellas/catalog.json",
+      "tilesets": {
+        "gradient": "tiles/annual_appearance/nube-f-huellas/gradient/tileset.json",
+        "surface": "tiles/annual_appearance/nube-f-huellas/surface/tileset.json",
+        "building": "tiles/annual_appearance/nube-f-huellas/building/tileset.json"
+      },
+      "legend": "appearances_2026_total/MODELO_NUBE_F_HUELLAS_CONSOLIDATED_annual_total_2026_shared_range_legend.png",
+      "building_count": 2091,
+      "surface_total_values": "surface_irradiation/nube-f-huellas.csv",
+      "daily_total_shard_template": "surface_daily/nube-f-huellas/{bucket}.bin"
+    },
+    {
+      "id": "nube-f-area-construida",
+      "name": "MODELO NUBE F AREA CONSTRUIDA CONSOLIDATED",
+      "catalog": "tiles/annual_appearance/nube-f-area-construida/catalog.json",
+      "tilesets": {
+        "gradient": "tiles/annual_appearance/nube-f-area-construida/gradient/tileset.json",
+        "surface": "tiles/annual_appearance/nube-f-area-construida/surface/tileset.json",
+        "building": "tiles/annual_appearance/nube-f-area-construida/building/tileset.json"
+      },
+      "legend": "appearances_2026_total/MODELO_NUBE_F_AREA_CONSTRUIDA_CONSOLIDATED_annual_total_2026_shared_range_legend.png",
+      "building_count": 394,
+      "surface_total_values": "surface_irradiation/nube-f-area-construida.csv",
+      "daily_total_shard_template": "surface_daily/nube-f-area-construida/{bucket}.bin"
+    },
+    {
+      "id": "lidar-huellas",
+      "name": "MODELO LIDAR HUELLAS CONSOLIDATED",
+      "catalog": "tiles/annual_appearance/lidar-huellas/catalog.json",
+      "tilesets": {
+        "gradient": "tiles/annual_appearance/lidar-huellas/gradient/tileset.json",
+        "surface": "tiles/annual_appearance/lidar-huellas/surface/tileset.json",
+        "building": "tiles/annual_appearance/lidar-huellas/building/tileset.json"
+      },
+      "legend": "appearances_2026_total/MODELO_LIDAR_HUELLAS_CONSOLIDATED_annual_total_2026_shared_range_legend.png",
+      "building_count": 2080,
+      "surface_total_values": "surface_irradiation/lidar-huellas.csv",
+      "daily_total_shard_template": "surface_daily/lidar-huellas/{bucket}.bin"
+    },
+    {
+      "id": "lidar-area-construida",
+      "name": "MODELO LIDAR AREA CONSTRUIDA CONSOLIDATED",
+      "catalog": "tiles/annual_appearance/lidar-area-construida/catalog.json",
+      "tilesets": {
+        "gradient": "tiles/annual_appearance/lidar-area-construida/gradient/tileset.json",
+        "surface": "tiles/annual_appearance/lidar-area-construida/surface/tileset.json",
+        "building": "tiles/annual_appearance/lidar-area-construida/building/tileset.json"
+      },
+      "legend": "appearances_2026_total/MODELO_LIDAR_AREA_CONSTRUIDA_CONSOLIDATED_annual_total_2026_shared_range_legend.png",
+      "building_count": 379,
+      "surface_total_values": "surface_irradiation/lidar-area-construida.csv",
+      "daily_total_shard_template": "surface_daily/lidar-area-construida/{bucket}.bin"
+    }
+  ],
+  "surface_total_value_schema": {
+    "component": "total",
+    "units": "kWh/m\u00b2/year",
+    "delimiter": ";",
+    "decimal_separator": ",",
+    "key": "surface_id (CityGML gml:id)",
+    "fields": [
+      "surface_id",
+      "period",
+      "component",
+      "annual_average_kwh_m2",
+      "min_point_kwh_m2",
+      "max_point_kwh_m2",
+      "point_count"
+    ]
+  },
+  "daily_total_value_schema": {
+    "component": "total",
+    "units": "kWh/m\u00b2/day",
+    "year": 2026,
+    "start_date": "2026-01-01",
+    "end_date": "2026-12-31",
+    "day_count": 365,
+    "encoding": "gzip-compressed binary (.bin, gzip stream): STDY magic, uint8 version, uint16 day count, uint16 scale, then records of uint8 UTF-8 ID length, ID bytes, and 365 little-endian uint16 values",
+    "value_scale": 1000,
+    "value_precision_kwh_m2": 0.001,
+    "sharding": "first hexadecimal UUID nibble after the surface ID prefix"
+  }
+}

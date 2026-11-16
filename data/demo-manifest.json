@@ -1,0 +1,40 @@
+{
+  "scenarios": [
+    {
+      "id": "synthetic_irradiation_demo",
+      "name": "Synthetic annual irradiation (demo)",
+      "tileset": "tiles/tunja_preview/tileset.json"
+    }
+  ],
+  "terrain": {
+    "tileset": "tiles/terrain/tileset.json"
+  },
+  "metrics": "demo-metrics.json",
+  "basemap": {
+    "archive": "/basemap/Tunja.pmtiles",
+    "attribution": "\u00a9 OpenStreetMap contributors \u00b7 BBBike extract \u00b7 systemed/BBBike.org style"
+  },
+  "units": "kWh/m\u00b2/year",
+  "orientation_sectors": [
+    "N",
+    "NE",
+    "E",
+    "SE",
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "FLAT_ROOF"
+  ],
+  "geometry_only": false,
+  "demo": true,
+  "preparation": {
+    "synthetic": true,
+    "demo_value_count": 64,
+    "value_range_kwh_m2_year": [
+      700,
+      1800
+    ],
+    "notice": "Illustrative test values only; not measured or simulated results."
+  }
+}
