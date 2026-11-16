@@ -175,3 +175,6 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Dropbox conflict copies are retained locally but excluded from the published site
+*conflicted copy*
